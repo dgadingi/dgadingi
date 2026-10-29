@@ -5,19 +5,32 @@ import { Spotlight } from "../../Ui/spotlight";
 
 const Tentang = () => {
     const skills = [
-        { text: 'Javascript' },
         { text: 'Bootstrap' },
         { text: 'Tailwind' },
-        { text: 'Vue' },
+        { text: 'Vue.js' },
+        { text: 'Communication Skills' },
+        { text: 'Teamwork Skills' },
+        { text: 'Problem Solving Skills' },
+        { text: 'Adaptability' },
         { text: 'Pinia' },
-        { text: 'React' },
+        { text: 'React.js' },
         { text: 'Zustand' },
+        { text: 'Digital Operation Skills' },
         { text: 'Vite' },
-        { text: 'Node' },
-        { text: 'Express' },
+        { text: 'Express.js' },
         { text: 'MySql' },
         { text: 'Git' },
         { text: 'Figma' },
+        { text: 'Microsoft Office' },
+        { text: 'Google Suite' },
+        { text: 'Administration Skills' },
+        { text: 'Digital Operation Skills' },
+        { text: 'Video Editing' },
+        { text: 'Content Creation' },
+        { text: 'Time Management' },
+        { text: 'Detail Oriented' },
+        { text: 'Fast Learner' },
+        { text: 'Result Oriented' },
     ];
 
     return (
@@ -28,8 +41,9 @@ const Tentang = () => {
 
                     <div className="w-full h-full flex flex-col items-center justify-evenly text-neutral-400 md:p-0 gap-3">
                         <div className='flex flex-col gap-3 h-[80%] text-justify md:h-full'>
-                            <p className="text-sm md:text-lg">Saya adalah Junior Frontend Developer dan mahasiswa semester 5 di Universitas Pamulang, tinggal di Kabupaten Tangerang. Saya fokus pada pengembangan web dengan teknologi seperti TailwindCSS, JavaScript, Vue.js dan React.js, serta bersemangat menciptakan antarmuka pengguna yang responsif dan optimal.</p>
-                            <p className="text-sm md:text-lg">Saya antusias menciptakan antarmuka pengguna yang responsif dan terus belajar tentang framework serta teknik terbaru dalam pengembangan web. Aktif dalam proyek perkuliahan dan pribadi, saya percaya kemampuan saya dalam beradaptasi dengan teknologi baru dan menyelesaikan masalah akan mendukung karier saya di bidang ini.</p>
+                            <p className="text-sm md:text-lg">Halo! Saya berfokus pada bidang Front-end Development, Administration Staff, dan IT & Digital Operations. Terbiasa menggunakan React.js, Vue.js, Express.js dan Tailwind CSS untuk membuat website yang responsif, modern, dan user-friendly serta Microsoft Office dan Google Suite untuk menunjang pekerjaan.</p>
+                            <p className="text-sm md:text-lg">Selalu antusias untuk berkembang, mempelajari hal baru, bekerja secara detail, serta mampu bekerja secara individu maupun tim. Terbuka untuk sharing, diskusi peluang dan kolaborasi di bidang teknologi maupun administrasi digital.</p>
+                            <p className="text-sm md:text-lg">Let’s build something awesome together!</p>
                         </div>
 
                         <div className="w-full h-12 relative inline-flex overflow-hidden rounded-full p-[1px] md:w-96 md:h-fit">
@@ -60,7 +74,7 @@ const Tentang = () => {
                                             key={index}
                                             className="cursor-pointer p-3 text-neutral-400 rounded-full shadow-2xl text-center"
                                         >
-                                            <p>{skill.text}</p>
+                                            <p className="text-xs md:text-sm">{skill.text}</p>
                                         </div>
                                     ))}
                                 </Carousel>

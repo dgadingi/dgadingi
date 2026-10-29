@@ -7,7 +7,7 @@ import { TextGenerateEffect } from "../../Ui/text-generate-effect";
 const Beranda = () => {
     const pembuka = `Hai semua, saya`;
     const nama = `Denus Gading Imanuel`;
-    const kata = `Halo, saya Denus, seorang pengembang web junior. Saya terbiasa bekerja dengan React JS dan Vue JS, serta memanfaatkan alat-alat canggih seperti Tailwind CSS untuk menciptakan solusi web yang inovatif, responsif, dan dinamis.`;
+    const kata = `Berfokus pada Front-end Development, Administration Staff, dan IT & Digital Operations. Terampil menggunakan React.js, Vue.js, Express.js, Tailwind CSS, Microsoft Office, dan Google Suite. Adaptif, teliti, komunikatif, serta mampu bekerja secara individu maupun tim. Terbuka untuk belajar, berdiskusi, dan berkolaborasi di bidang teknologi dan administrasi digital.`;
 
     return (
         <div className="h-full w-full flex items-center justify-center ">
@@ -39,10 +39,10 @@ const Beranda = () => {
 
                         <div className="flex items-center justify-center">
                             <div className="flex flex-row gap-12 md:flex-col">
-                                <Link href="../../../../assets/cv/CV_DENUS_TECH.html">
+                                <Link href="https://www.linkedin.com/in/dgadingi/?locale=en">
                                     <Button children="Rekrut Saya" className="py-5 px-4 md:py-10" />
                                 </Link>
-                                <Link href="../../../../assets/cv/CV_DENUS_TECH.html">
+                                <Link href="../../../../assets/cv/cv.pdf">
                                     <Button children="Unduh CV" className="py-5 px-4 md:py-10" />
                                 </Link>
                             </div>

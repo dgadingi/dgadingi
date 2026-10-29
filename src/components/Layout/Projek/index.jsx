@@ -8,9 +8,22 @@ import { PinContainer } from "../../Ui/3d.pin";
 import { TextGenerateEffect } from "../../Ui/text-generate-effect";
 import Button from "../../Ui/button";
 import Image from "next/image";
+import ImageLightbox from "../../Ui/image-lightbox";
+import { IconZoomIn } from "@tabler/icons-react";
 
 const Tentang = () => {
     const [selectedProject, setSelectedProject] = useState(null);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
+
+    const openLightbox = (index) => {
+        setLightboxIndex(index);
+        setLightboxOpen(true);
+    };
+
+    const closeLightbox = () => {
+        setLightboxOpen(false);
+    };
 
     const responsive = {
         superLargeDesktop: {
@@ -35,72 +48,124 @@ const Tentang = () => {
 
     const projects = [
         {
-            title: "Cashier App",
-            description: "Cashier App ini adalah solusi manajemen kasir yang lengkap dan terintegrasi, dirancang untuk mempermudah operasional bisnis. Aplikasi ini tidak hanya memungkinkan kasir untuk melayani pelanggan, memproses pesanan, dan mencetak struk transaksi, tetapi juga menyediakan fitur laporan keuangan yang komprehensif. Pengguna dapat mengakses laporan harian, mingguan, dan bulanan, serta melakukan CRUD (Create, Read, Update, Delete) pada produk untuk mengelola inventaris dengan mudah.",
-            thumbnail: "/assets/projek/cashier/2.png",
+            title: "Selaras POS APP",
+            description: "Aplikasi kasir yang dirancang untuk memproses pesanan pelanggan dengan cepat dan efisien. Aplikasi ini dilengkapi dengan halaman admin yang memungkinkan pengaturan produk. Halaman admin ini memudahkan pengguna untuk mengelola daftar produk yang tersedia, sementara bagian kasir tetap fokus pada pemrosesan transaksi pelanggan.",
+            thumbnail: "/assets/projek/kasir/2.png",
             images: [
-                "/assets/projek/cashier/1.png",
-                "/assets/projek/cashier/2.png",
-                "/assets/projek/cashier/3.png",
-                "/assets/projek/cashier/4.png",
-                "/assets/projek/cashier/5.png",
-                "/assets/projek/cashier/6.png",
-                "/assets/projek/cashier/7.png",
-                "/assets/projek/cashier/8.png",
-                "/assets/projek/cashier/9.png",
-                "/assets/projek/cashier/9.png",
-                "/assets/projek/cashier/10.png",
-                "/assets/projek/cashier/11.png"
+                "/assets/projek/kasir/1.png",
+                "/assets/projek/kasir/2.png",
+                "/assets/projek/kasir/3.png",
+                "/assets/projek/kasir/4.png",
+                "/assets/projek/kasir/5.png",
+                "/assets/projek/kasir/6.png",
+                "/assets/projek/kasir/7.png",
             ],
             tech: [
                 "/assets/skill/tailwindcss.svg",
                 "/assets/skill/javascript.svg",
+                "/assets/skill/vuedotjs.svg",
+                "/assets/skill/mysql.svg",
                 "/assets/skill/nodedotjs.svg",
                 "/assets/skill/express.svg",
-                "/assets/skill/vuedotjs.svg",
+            ]
+        },
+        {
+            title: "HRIS As-Syafii App",
+            description: "Aplikasi presensi dan penggajian karyawan ini memiliki 4 akses: Admin dan Karyawan, Bendahara, Ketua Yayasan. Admin dapat mengelola data karyawan, presensi, rekap presensi, serta pengaturan aplikasi. Rekap presensi juga bisa dicetak dalam format PDF. Karyawan melakukan presensi dengan foto wajah dan pencatatan lokasi (longitude, latitude) untuk memastikan keaslian presensi. Aplikasi ini dirancang untuk mencegah kecurangan dengan verifikasi wajah dan lokasi. Proyek ini menawarkan fitur lengkap dan aman untuk manajemen presensi karyawan. untuk bendahara bisa mencetak rekap presensi dan rekap gaji karyawan. untuk ketua yayasan juga bisa mencetak rekap presensi dan rekap gaji karyawan. dan juga bisa mengelola data karyawan, presensi, rekap presensi, serta pengaturan aplikasi. untuk karyawan sendiri juga bisa mengajukan izin dan cuti. dan juga bisa mencetak rekap presensi. ketua yayasan juga bisa mengelola data karyawan, presensi, rekap presensi, serta pengaturan aplikasi. untuk karyawan sendiri juga bisa mengajukan izin dan cuti. dan juga bisa mencetak rekap presensi.",
+            thumbnail: "/assets/projek/as-syafii/2.png",
+            images: [
+                "/assets/projek/as-syafii/1.png",
+                "/assets/projek/as-syafii/2.png",
+                "/assets/projek/as-syafii/3.png",
+                "/assets/projek/as-syafii/4.png",
+                "/assets/projek/as-syafii/5.png",
+                "/assets/projek/as-syafii/6.png",
+                "/assets/projek/as-syafii/7.png",
+                "/assets/projek/as-syafii/8.png",
+                "/assets/projek/as-syafii/9.png",
+                "/assets/projek/as-syafii/10.png",
+                "/assets/projek/as-syafii/11.png",
+                "/assets/projek/as-syafii/12.png",
+                "/assets/projek/as-syafii/13.png",
+                "/assets/projek/as-syafii/14.png",
+                "/assets/projek/as-syafii/15.png",
+                "/assets/projek/as-syafii/16.png",
+                "/assets/projek/as-syafii/17.png",
+            ],
+            tech: [
+
+                "/assets/skill/tailwindcss.svg",
+                "/assets/skill/javascript.svg",
+                "/assets/skill/nodedotjs.svg",
+                "/assets/skill/express.svg",
+                "/assets/skill/react.svg",
                 "/assets/skill/mysql.svg",
             ]
         },
         {
-            title: "Simple Cashier & Admin",
-            description: "Simple Cashier App adalah aplikasi kasir yang dirancang untuk memproses pesanan pelanggan dengan cepat dan efisien. Meskipun sederhana, aplikasi ini dilengkapi dengan halaman admin yang memungkinkan pengaturan produk. Halaman admin ini memudahkan pengguna untuk mengelola daftar produk yang tersedia, sementara bagian kasir tetap fokus pada pemrosesan transaksi pelanggan.",
-            thumbnail: "/assets/projek/kuliner/kuliner 1.png",
+            title: "Luxy Phone Store",
+            description: `Toko online untuk penjualan dan pembelian produk smartphone yang memiliki 3 akses: Admin, Pembeli, Penjual. Admin dapat mengelola data produk, data transaksi, data pengguna, serta pengaturan aplikasi. Pembeli dapat melakukan pembelian produk, serta dapat melihat riwayat pembelian. Penjual dapat melakukan penjualan produk, serta dapat melihat riwayat penjualan. Aplikasi ini dirancang untuk mencegah kecurangan dengan verifikasi wajah dan lokasi. Proyek ini menawarkan fitur lengkap dan aman untuk manajemen penjualan smartphone.`,
+            thumbnail: "/assets/projek/luxy-phone/1.png",
             images: [
-                "/assets/projek/kuliner/kuliner 1.png",
-                "/assets/projek/kuliner/kuliner 2.png",
-                "/assets/projek/kuliner/kuliner 3.png",
-                "/assets/projek/kuliner/kuliner 4.png",
-                "/assets/projek/kuliner/kuliner 5.png",
-                "/assets/projek/kuliner/kuliner 6.png",
-                "/assets/projek/kuliner/kuliner 7.png",
-                "/assets/projek/kuliner/admin 1.png",
-                "/assets/projek/kuliner/admin 2.png",
-                "/assets/projek/kuliner/admin 3.png",
-                "/assets/projek/kuliner/admin 4.png",
-                "/assets/projek/kuliner/admin 5.png"
+                "/assets/projek/luxy-phone/1.png",
+                "/assets/projek/luxy-phone/2.png",
+                "/assets/projek/luxy-phone/3.png",
+                "/assets/projek/luxy-phone/4.png",
+                "/assets/projek/luxy-phone/5.png",
+                "/assets/projek/luxy-phone/6.png",
+                "/assets/projek/luxy-phone/7.png",
+                "/assets/projek/luxy-phone/8.png",
+                "/assets/projek/luxy-phone/9.png",
+                "/assets/projek/luxy-phone/10.png",
+                "/assets/projek/luxy-phone/11.png",
+                "/assets/projek/luxy-phone/12.png",
+                "/assets/projek/luxy-phone/13.png",
+                "/assets/projek/luxy-phone/14.png",
+                "/assets/projek/luxy-phone/15.png",
+                "/assets/projek/luxy-phone/16.png",
+                "/assets/projek/luxy-phone/17.png",
+                "/assets/projek/luxy-phone/18.png",
+                "/assets/projek/luxy-phone/19.png",
+                "/assets/projek/luxy-phone/20.png",
+                "/assets/projek/luxy-phone/21.png",
+                "/assets/projek/luxy-phone/22.png",
+
             ],
             tech: [
-                "/assets/skill/bootstrap.svg",
+                "/assets/skill/tailwindcss.svg",
                 "/assets/skill/javascript.svg",
-                "/assets/skill/vuedotjs.svg",
+                "/assets/skill/react.svg",
+                "/assets/skill/nodedotjs.svg",
+                "/assets/skill/express.svg",
+                "/assets/skill/mysql.svg",
             ]
         },
         {
-            title: "Sistem Absensi Karyawan",
-            description: `Aplikasi absensi karyawan ini memiliki dua akses: Admin dan Karyawan. Admin dapat mengelola data karyawan, absensi, rekap absensi, serta pengaturan aplikasi. Rekap absensi juga bisa dicetak dalam format PDF. Karyawan melakukan absensi dengan foto wajah dan pencatatan lokasi (longitude, latitude) untuk memastikan keaslian absensi. Aplikasi ini dirancang untuk mencegah kecurangan dengan verifikasi wajah dan lokasi. Proyek ini menawarkan fitur lengkap dan aman untuk manajemen absensi karyawan.`,
-            thumbnail: "/assets/projek/absensi/admin2.png",
+            title: "As-Sera Manajemen & Penilaian Anak",
+            description: `Aplikasi manajemen dan penilaian anak yang dirancang untuk memudahkan wali santri dalam memantau perkembangan dan penilaian anak mereka. Aplikasi ini dilengkapi dengan halaman admin yang memungkinkan pengaturan data anak. Halaman admin ini memudahkan pengguna untuk mengelola daftar data anak, sementara bagian penilaian tetap fokus pada penilaian anak. Proyek ini menawarkan fitur lengkap dan aman untuk manajemen penjualan smartphone.`,
+            thumbnail: "/assets/projek/assera/2.png",
             images: [
-                "/assets/projek/absensi/admin1.png",
-                "/assets/projek/absensi/admin2.png",
-                "/assets/projek/absensi/admin3.png",
-                "/assets/projek/absensi/admin4.png",
-                "/assets/projek/absensi/admin5.png",
-                "/assets/projek/absensi/admin6.png",
-                "/assets/projek/absensi/admin7.png",
-                "/assets/projek/absensi/admin8.png",
-                "/assets/projek/absensi/admin9.png",
-                "/assets/projek/absensi/employee1.png",
-                "/assets/projek/absensi/employee2.png",
+                "/assets/projek/assera/1.png",
+                "/assets/projek/assera/2.png",
+                "/assets/projek/assera/3.png",
+                "/assets/projek/assera/4.png",
+                "/assets/projek/assera/5.png",
+                "/assets/projek/assera/6.png",
+                "/assets/projek/assera/7.png",
+                "/assets/projek/assera/8.png",
+                "/assets/projek/assera/9.png",
+                "/assets/projek/assera/10.png",
+                "/assets/projek/assera/11.png",
+                "/assets/projek/assera/12.png",
+                "/assets/projek/assera/13.png",
+                "/assets/projek/assera/14.png",
+                "/assets/projek/assera/15.png",
+                "/assets/projek/assera/16.png",
+                "/assets/projek/assera/17.png",
+                "/assets/projek/assera/18.png",
+                "/assets/projek/assera/19.png",
+                "/assets/projek/assera/20.png",
+
             ],
             tech: [
                 "/assets/skill/tailwindcss.svg",
@@ -119,6 +184,7 @@ const Tentang = () => {
 
     const closeModal = () => {
         setSelectedProject(null);
+        setLightboxOpen(false);
     };
 
     return (
@@ -129,7 +195,7 @@ const Tentang = () => {
 
                     <div className="w-full h-full flex flex-col items-center justify-start gap-5 md:gap-5">
                         <div className="w-full h-fit py-2 inline-flex animate-shimmer items-center justify-center rounded-xl border-b-2 border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium transition-colors shadow-md shadow-neutral-500">
-                            <TextGenerateEffect words="Beberapa projek yang telah saya kerjakan" className="text-lg md:text-4xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 font-sans font-bold"/>
+                            <TextGenerateEffect words="Beberapa projek yang telah saya kerjakan" className="text-lg md:text-4xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 font-sans font-bold" />
                         </div>
 
                         <Carousel
@@ -195,19 +261,73 @@ const Tentang = () => {
                                 </div>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-2 p-5">
-                                {selectedProject.images.map((image, index) => (
-                                    <Image width={300} height={300} key={index} src={image} alt={`Detail ${index}`} className="w-full h-full object-cover rounded-lg" />
-                                ))}
+                            {/* Gallery Section */}
+                            <div className="w-full p-3 sm:p-5 text-left">
+                                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 mb-4 pb-2 border-b border-neutral-800">
+                                    <div className="flex items-center gap-2">
+                                        <h3 className="text-base sm:text-lg font-bold text-neutral-200">
+                                            Galeri Screenshot Projek
+                                        </h3>
+                                        <span className="text-xs px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-medium">
+                                            {selectedProject.images.length} Gambar
+                                        </span>
+                                    </div>
+                                    <span className="text-xs text-neutral-400 flex items-center gap-1">
+                                        💡 Klik gambar untuk membuka pratinjau & navigasi
+                                    </span>
+                                </div>
+
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {selectedProject.images.map((image, index) => (
+                                        <div
+                                            key={index}
+                                            onClick={() => openLightbox(index)}
+                                            className="group relative aspect-video w-full rounded-xl overflow-hidden bg-neutral-900 border border-neutral-700/60 hover:border-cyan-400/80 shadow-lg hover:shadow-[0_0_25px_rgba(6,182,212,0.2)] transition-all duration-300 cursor-pointer"
+                                        >
+                                            <Image
+                                                fill
+                                                sizes="(max-width: 640px) 100vw, 50vw"
+                                                src={image}
+                                                alt={`${selectedProject.title} screenshot ${index + 1}`}
+                                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                            />
+                                            {/* Hover Overlay */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-3.5">
+                                                <div className="flex justify-end">
+                                                    <span className="p-2 rounded-lg bg-black/70 backdrop-blur-md text-cyan-400 border border-white/10 shadow-lg group-hover:scale-110 transition-transform">
+                                                        <IconZoomIn size={18} />
+                                                    </span>
+                                                </div>
+                                                <div className="flex items-center justify-between text-xs text-neutral-200">
+                                                    <span className="font-medium bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10">
+                                                        Gambar #{index + 1}
+                                                    </span>
+                                                    <span className="text-cyan-300 font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                                                        Buka Gambar &rarr;
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
 
-                            <div onClick={closeModal} className="absolute top-0 right-0 p-3 cursor-pointer">
+                            <div onClick={closeModal} className="absolute top-0 right-0 p-3 cursor-pointer z-10">
                                 <Button children="X" className="py-4 px-4 md:py-4" />
                             </div>
                         </div>
                     )
                 }
             </Modal>
+
+            {/* Fullscreen Lightbox Image Gallery */}
+            <ImageLightbox
+                isOpen={lightboxOpen}
+                images={selectedProject?.images || []}
+                initialIndex={lightboxIndex}
+                title={selectedProject?.title}
+                onClose={closeLightbox}
+            />
 
         </div>
     )
